@@ -1,0 +1,19 @@
+<section class="container">
+    <ul *ngIf="!isMobileView">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">AI Essay check</a></li>
+      <li><a href="#">AI Speaking check</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  
+    <div *ngIf="isMobileView" class="mobile-menu">
+      <a href="#">Home</a>
+      <select (change)="navigateTo($event)">
+        <option value="" disabled selected>Tools</option>
+        <option value="essay">AI Essay check</option>
+        <option value="speaking">AI Speaking check</option>
+      </select>
+    </div>
+  </section>
+  

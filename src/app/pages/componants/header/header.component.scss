@@ -1,0 +1,44 @@
+.container{
+    width: auto;
+    height: 50px;
+    background-color: rgb(183, 183, 183);
+    
+}
+
+.container ul li{
+    list-style: none;
+    display: inline;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.container ul{
+    float: right;
+    padding: 10px;
+
+    a{
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.mobile-menu a{
+    text-decoration: none;
+    color: black;
+    font-size: 135%;
+}
+
+.mobile-menu select{
+    width: 25%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    float: inline-end;
+    
+}
+
+.mobile-menu {
+    padding: 2%;
+}
