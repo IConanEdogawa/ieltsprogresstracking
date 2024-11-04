@@ -1,1 +1,63 @@
-<p>graph works!</p>
+<div class="container">
+    <!-- First Row with numbers from 1 to 40 -->
+    <div class="row">
+      <select [(ngModel)]="firstNumber">
+        <option *ngFor="let number of firstRange" [value]="number">{{ number }}</option>
+      </select>
+      <select [(ngModel)]="secondNumber">
+        <option *ngFor="let number of firstRange" [value]="number">{{ number }}</option>
+      </select>
+    </div>
+  
+    <!-- Second Row with numbers from 0 to 9 in 0.5 increments -->
+    <div class="row">
+      <select [(ngModel)]="thirdNumber">
+        <option *ngFor="let number of secondRange" [value]="number">{{ number }}</option>
+      </select>
+      <select [(ngModel)]="fourthNumber">
+        <option *ngFor="let number of secondRange" [value]="number">{{ number }}</option>
+      </select>
+    </div>
+  </div>
+
+
+<!-- After the numbers are selected, the graph will be displayed -->
+
+
+
+
+
+<ngx-charts-bar-vertical-2d
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="multi"
+  [gradient]="gradient"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [legend]="showLegend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  [legendTitle]="legendTitle"
+  (select)="onSelect($event)"
+  (activate)="onActivate($event)"
+  (deactivate)="onDeactivate($event)">
+</ngx-charts-bar-vertical-2d>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
