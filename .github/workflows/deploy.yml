@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Выберите подходящую версию Node.js
+          node-version: '23.1.0'  # Выберите подходящую версию Node.js
       - name: Install dependencies
         run: npm install
       - name: Build
