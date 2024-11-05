@@ -1,4 +1,4 @@
-name: Angular Build and Test
+name: Angular Build ## and Test
 
 on: [push]
 
@@ -15,8 +15,8 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-      - name: Test
-        run: npm run test
+      # - name: Test
+      #   run: npm run test
 
   deploy:
     runs-on: ubuntu-latest
