@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { multi } from '../../../assets/data';
+import { single } from '../../../assets/data';
+import { Color, ScaleType } from '@swimlane/ngx-charts';
 
 @Component({
   selector: 'app-graph',
@@ -17,39 +18,43 @@ export class GraphComponent {
 
 
 
-  multi: any[] = [];
+  single: any[] = []; 
   view: [number, number] = [380, 400];
+  overallScore: number = 0;
 
-  constructor() {
-    Object.assign(this, { multi })
-  }
+// параметры диаграммы
+showXAxis = true;
+showYAxis = true;
+gradient = false;
+showLegend = false;
+showXAxisLabel = true;
+xAxisLabel = 'IELTS Section';
+showYAxisLabel = true;
+yAxisLabel = 'Score';
 
-  // options
-  showXAxis: boolean = true;
-  showYAxis: boolean = true;
-  gradient: boolean = true;
-  showLegend: boolean = true;
-  showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Country';
-  showYAxisLabel: boolean = true;
-  yAxisLabel: string = 'Population';
-  legendTitle: string = 'Years';
-
-  colorScheme: any = {
-    domain: ['#5AA454', '#C7B42C', '#88C273']
-  };
+colorScheme: any = {
+  domain: ['#5AA454', '#A10A28', '#C7B42C', '#2196F3','#AAAAAA', '#9C27B0' ] // цвета для каждой секции IELTS
+};
 
 
 
- onSelect(data: any): void {
-    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
-  }
+constructor() {
+  Object.assign(this, { single }); 
+  this.single.push({ name: 'Overall', value: this.calculateOverallScore() });
+}
 
-  onActivate(data: any): void {
-    console.log('Activate', JSON.parse(JSON.stringify(data)));
-  }
 
-  onDeactivate(data: any): void {
-    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
-  }
+calculateOverallScore(): any {
+  // суммируем все значения и делим на их количество
+  const totalScore = this.single.reduce((sum, section) => sum + section.value, 0);
+  const averageScore = totalScore / this.single.length;
+
+  // округляем до ближайшего 0.5
+  return this.overallScore = Math.round(averageScore * 2) / 2;
+}
+
+onSelect(event: any) {
+  console.log(event);
+}
+
 }
