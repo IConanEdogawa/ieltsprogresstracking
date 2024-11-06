@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { MenubarModule } from 'primeng/menubar';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,7 +30,9 @@ import { GraphComponent } from './pages/componants/graph/graph.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgxChartsModule
+    NgxChartsModule,
+    MenubarModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration()

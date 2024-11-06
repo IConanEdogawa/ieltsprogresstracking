@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { single } from '../../../assets/data';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-graph',
@@ -8,6 +9,41 @@ import { Color, ScaleType } from '@swimlane/ngx-charts';
   styleUrl: './graph.component.scss'
 })
 export class GraphComponent {
+
+
+  selectedTip: string = 'overall';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   firstRange: number[] = Array.from({ length: 40 }, (_, i) => i + 1); // Generates 1 to 40
   secondRange: number[] = Array.from({ length: 19 }, (_, i) => i * 0.5); // Generates 0, 0.5, 1, ..., 9
 
@@ -39,6 +75,7 @@ colorScheme: any = {
 
 
 constructor() {
+
   Object.assign(this, { single }); 
   this.single.push({ name: 'Overall', value: this.calculateOverallScore() });
 }

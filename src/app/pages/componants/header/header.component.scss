@@ -1,9 +1,21 @@
-.container{
-    width: auto;
-    height: 50px;
-    background-color: rgb(183, 183, 183);
+// .container{
+//     width: auto;
+//     height: 50px;
+//     background-color: rgb(183, 183, 183);
     
+// }
+
+.container {
+    width: auto;
+    height: auto; /* измените на auto для автоматической высоты */
+    min-height: 50px; /* минимальная высота */
+    background-color: rgb(183, 183, 183);
+    display: flex; /* добавлено для лучшего выравнивания содержимого */
+    align-items: center; /* выравнивание по центру по вертикали */
+    justify-content: space-between; /* выравнивание по горизонтали */
+    padding: 10px; /* добавлен padding для лучшего отображения */
 }
+
 
 .container ul li{
     list-style: none;
@@ -42,4 +54,10 @@
 
 .mobile-menu {
     padding: 2%;
+}
+
+
+.card {
+    width: 100%;
+    height: auto;
 }

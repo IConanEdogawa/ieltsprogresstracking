@@ -1,4 +1,15 @@
-<div class="container">
+<div class="tip">
+  <label for="tip-select">Выберите подсказку:</label>
+  <select id="tip-select" [(ngModel)]="selectedTip">
+    <option value="overall">Общая подсказка</option>
+    <option value="one-type">Подсказка одного типа</option>
+    <option value="full-row-type">Подсказка полного ряда</option>
+  </select>
+</div>
+
+
+
+<div class="container" *ngIf="selectedTip === 'overall'">
     <!-- First Row with numbers from 1 to 40 -->
     <div class="row">
       <select [(ngModel)]="firstNumber">
@@ -19,6 +30,19 @@
       </select>
     </div>
   </div>
+
+  
+
+
+
+
+
+
+  <!-- ------------------------------------------------ -->
+
+
+  
+  
 
 
 <!-- After the numbers are selected, the graph will be displayed -->

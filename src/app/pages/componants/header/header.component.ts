@@ -1,21 +1,30 @@
 import { Component, HostListener, Renderer2 } from '@angular/core';
+import { MenuItem } from 'primeng/api';
+import { MenubarModule } from 'primeng/menubar';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrls: ['./header.component.scss'] // исправлено здесь
 })
+
 export class HeaderComponent {
+
+
+
+
+  ngOnInit() {
+    this.checkScreenSize();
+
+  }
+
   isMobileView = false;
 
   constructor(private renderer: Renderer2) {}
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
-    this.checkScreenSize();
-  }
-
-  ngOnInit() {
     this.checkScreenSize();
   }
 
