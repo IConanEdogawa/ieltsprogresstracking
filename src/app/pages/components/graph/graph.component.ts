@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { single } from '../../../assets/data';
+import { single, multi } from '../../../assets/data';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -12,7 +12,7 @@ export class GraphComponent {
 
 
   selectedTip: string = 'overall';
-
+  multi: any[] = [];
 
 
 
@@ -68,6 +68,20 @@ xAxisLabel = 'IELTS Section';
 showYAxisLabel = true;
 yAxisLabel = 'Score';
 
+
+
+  // options
+  legend: boolean = false;
+  showLabels: boolean = true;
+  animations: boolean = true;
+  xAxis: boolean = true;
+  yAxis: boolean = true;
+  // showYAxisLabel: boolean = true;
+  // showXAxisLabel: boolean = true;
+  // xAxisLabel: string = 'Year';
+  // yAxisLabel: string = 'Population';
+  timeline: boolean = true;
+
 colorScheme: any = {
   domain: ['#5AA454', '#A10A28', '#C7B42C', '#2196F3','#AAAAAA', '#9C27B0' ] // цвета для каждой секции IELTS
 };
@@ -77,8 +91,47 @@ colorScheme: any = {
 constructor() {
 
   Object.assign(this, { single }); 
+  Object.assign(this, { multi });
   this.single.push({ name: 'Overall', value: this.calculateOverallScore() });
 }
+
+calculateIELTSBand(score: number | "not attend"): number {
+  if (score === "not attend") {
+      return 0;
+  }
+
+  if (score >= 39) return 9.0;
+  if (score >= 37) return 8.5;
+  if (score >= 35) return 8.0;
+  if (score >= 33) return 7.5;
+  if (score >= 30) return 7.0;
+  if (score >= 27) return 6.5;
+  if (score >= 23) return 6.0;
+  if (score >= 19) return 5.5;
+  if (score >= 15) return 5.0;
+  if (score >= 13) return 4.5;
+  if (score >= 10) return 4.0;
+  if (score >= 8) return 3.5;
+  if (score >= 7) return 3.0;
+  if (score >= 4) return 2.5;
+
+  // Any score below 4
+  return 1.0;
+}
+
+
+
+
+
+onActivate(data: any): void {
+  console.log('Activate', JSON.parse(JSON.stringify(data)));
+}
+
+onDeactivate(data: any): void {
+  console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+}
+
+
 
 
 calculateOverallScore(): any {

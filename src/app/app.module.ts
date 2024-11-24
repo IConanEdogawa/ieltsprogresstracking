@@ -10,10 +10,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { HeaderComponent } from './pages/componants/header/header.component';
-import { FooterComponent } from './pages/componants/footer/footer.component';
-import { SidebarComponent } from './pages/componants/sidebar/sidebar.component';
-import { GraphComponent } from './pages/componants/graph/graph.component';
+import { HeaderComponent } from './pages/components/header/header.component';
+import { FooterComponent } from './pages/components/footer/footer.component';
+import { SidebarComponent } from './pages/components/sidebar/sidebar.component';
+import { GraphComponent } from './pages/components/graph/graph.component';
 
 @NgModule({
   declarations: [
